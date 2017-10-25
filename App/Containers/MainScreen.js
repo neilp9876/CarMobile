@@ -117,12 +117,12 @@ export default class LaunchScreen extends Component {
             // Steering - so set the direction
             if (buttonName == "Left") {
                 this.steeringAction = this.steerActionEnum.LEFT;
-                this.steeringDirection -= 1;
+                this.steeringDirection += 1;
                 console.log('Steering Left');                
             }
             else {
                 this.steeringAction = this.steerActionEnum.RIGHT;      
-                this.steeringDirection += 1;
+                this.steeringDirection -= 1;
                 console.log('Steering Right');                
             }
         }
@@ -154,15 +154,15 @@ export default class LaunchScreen extends Component {
                 break;
 
             case this.steerActionEnum.LEFT:
-                this.steeringDirection -= 1;
-                if (this.steeringDirection < 1)
-                    this.steeringDirection = 1;
+                this.steeringDirection += 1;
+                if (this.steeringDirection > 9)
+                    this.steeringDirection = 9;
                 break;
 
             case this.steerActionEnum.RIGHT:
-                this.steeringDirection += 1;
-                if (this.steeringDirection > 9)
-                    this.steeringDirection = 9;  
+                this.steeringDirection -= 1;
+                if (this.steeringDirection < 1)
+                    this.steeringDirection = 1;  
                 break;       
         }
 
